@@ -559,6 +559,8 @@ namespace KellermanSoftware.CompareNetObjects
         /// </summary>
         public bool IgnoreMissingFields { get; set; }
 
+        public bool IgnoreIfValueOfExpectedIsNull { get; set; }
+
         #endregion
 
         #region Methods
@@ -644,6 +646,7 @@ namespace KellermanSoftware.CompareNetObjects
             IgnoreStringLeadingTrailingWhitespace = false;
             IgnoreMissingProperties = true;
             IgnoreMissingFields = true;
+            IgnoreIfValueOfExpectedIsNull = false;
         }
 #endregion
     }

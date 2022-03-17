@@ -105,6 +105,9 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
             if (parameters == null)
                 throw new ArgumentNullException("parameters");
 
+            if (parameters.Config.IgnoreIfValueOfExpectedIsNull && parameters.Object1 == null)
+                return;
+
             Difference difference = new Difference
             {
                 ParentObject1 = parameters.ParentObject1,
@@ -131,6 +134,10 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
 
             if (difference == null)
                 throw new ArgumentNullException("difference");
+
+
+            if (result.Config.IgnoreIfValueOfExpectedIsNull && difference.Object1Value == null)
+                return;
 
             difference.ActualName = result.Config.ActualName;
             difference.ExpectedName = result.Config.ExpectedName;
